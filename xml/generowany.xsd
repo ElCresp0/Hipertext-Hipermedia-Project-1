@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="chesslav">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="wstep">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="pic">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="picTitle" type="xs:string" />
+									</xs:sequence>
+									<xs:attribute name="src" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="naglowek" type="xs:string" />
+							<xs:element name="linki">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="link">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="txt" type="xs:string" />
+												</xs:sequence>
+												<xs:attribute name="href" type="xs:string" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="typ" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="tresc">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="segment">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="naglowek" type="xs:string" />
+										<xs:element minOccurs="0" name="mistrzowie">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="mistrz" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="galeria">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="figure">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="pic">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="picTitle" type="xs:string" />
+																		</xs:sequence>
+																		<xs:attribute name="src" type="xs:string" use="required" />
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="podpis" type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="tekst">
+											<xs:complexType mixed="true">
+												<xs:sequence minOccurs="0">
+													<xs:element name="link">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="txt" type="xs:string" />
+															</xs:sequence>
+															<xs:attribute name="href" type="xs:string" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="rodzaj" type="xs:string" use="optional" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:unsignedByte" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="stopka">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="autor" type="xs:string" />
+							<xs:element name="link">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="txt" type="xs:string" />
+									</xs:sequence>
+									<xs:attribute name="href" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="lang" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
